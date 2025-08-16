@@ -5,15 +5,31 @@
   <title>Примитивная форма</title>
 </head>
 <body>
-  <form action="http://localhost:5000/submit" method="post">
-    <label>Имя: <input type="text" name="name"></label><br>
-    <label>Пол:
-      <select name="gender">
-        <option value="male">Мужской</option>
-        <option value="female">Женский</option>
-      </select>
-    </label><br>
-    <button type="submit">Отправить</button>
-  </form>
+  <label>Имя: <input type="text" id="name"></label><br>
+  <label>Пол:
+    <select id="gender">
+      <option value="male">Мужской</option>
+      <option value="female">Женский</option>
+    </select>
+  </label><br>
+  <button id="send">Отправить</button>
+
+  <div id="result" style="margin-top:15px; font-weight:bold;"></div>
+
+  <script>
+    document.getElementById("send").addEventListener("click", async () => {
+      const name = document.getElementById("name").value;
+      const gender = document.getElementById("gender").value;
+
+      const res = await fetch("http://localhost:5000/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, gender })
+      });
+
+      const text = await res.text();
+      document.getElementById("result").textContent = text;
+    });
+  </script>
 </body>
 </html>
