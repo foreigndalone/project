@@ -2,9 +2,18 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Примитивный сайт</title>
+  <title>Примитивная форма</title>
 </head>
 <body>
-  <button onclick="alert('Нажата кнопка!')">Жми</button>
+  <form action="http://localhost:5000/submit" method="post">
+    <label>Имя: <input type="text" name="name"></label><br>
+    <label>Пол:
+      <select name="gender">
+        <option value="male">Мужской</option>
+        <option value="female">Женский</option>
+      </select>
+    </label><br>
+    <button type="submit">Отправить</button>
+  </form>
 </body>
 </html>
