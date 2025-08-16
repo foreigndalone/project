@@ -21,7 +21,7 @@
       const name = document.getElementById("name").value;
       const gender = document.getElementById("gender").value;
 
-      const res = await fetch("http://localhost:5000/submit", {
+      const res = await fetch("http://<IP_сервера>:5000/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, gender })
