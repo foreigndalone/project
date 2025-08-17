@@ -9,6 +9,7 @@ def submit():
     data = request.get_json()
     name = data.get("name")
     gender = data.get("gender")
+    print(f"Привет, {name}! Ты указал пол: {gender}")
     return f"Привет, {name}! Ты указал пол: {gender}"
 
 if __name__ == "__main__":
